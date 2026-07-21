@@ -6,6 +6,7 @@
 		inputs.caelestia.homeManagerModules.default
 		./hypr-binds.nix
 		./hypr-settings.nix
+		./niri-binds.nix
 		];
 
 	programs.caelestia = {
@@ -36,6 +37,7 @@
 		fish
 		parabolic
 		wine
+		speedtest-cli
 		];
 
 	programs.home-manager.enable = true;

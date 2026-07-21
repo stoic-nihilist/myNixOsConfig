@@ -1,0 +1,21 @@
+// Custom keybinds, included from config.kdl via: include "niri-binds.kdl"
+// Managed by Home Manager - do not edit directly, changes will be overwritten
+// on the next `home-manager switch`.
+//
+// Mod+T (kitty) and Mod+Q (close-window) are already bound in the stock
+// config and already match what's wanted here, so they're left alone.
+// Mod+H is core niri column navigation (focus-column-left), so Helium is
+// bound to Mod+Alt+H instead of clobbering it.
+
+binds {
+    Mod+Alt+H { spawn "helium"; }
+    Mod+S     { spawn "spotify"; }
+    Mod+E     { spawn "thunar"; }
+
+    // Caelestia launcher ("Search"/"Center")
+    Mod+Space { spawn "caelestia" "shell" "drawers" "toggle" "launcher"; }
+
+    // Workspace 10, to match the Mod+0 wraparound used on the Hyprland side
+    // (stock config only pre-binds workspaces 1-9)
+    Mod+0 { focus-workspace 10; }
+}

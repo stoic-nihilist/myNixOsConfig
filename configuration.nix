@@ -17,7 +17,7 @@
 
   # Enable and configure Howdy
   services.howdy = {
-	enable = true;
+#	enable = true;
 	control = "sufficient";
 	};
 
