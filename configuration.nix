@@ -65,7 +65,7 @@
 
   # Enable SDDM greeter and configure it for Wayland
   services.displayManager.sddm = {
-	enable = true;
+#	enable = true;
 	wayland.enable = true; 
 	theme = "catppuccin-sddm-corners";
 	};
