@@ -6,6 +6,11 @@
 
 {
 
+  # Enable and configure fish
+  programs.fish.enable = true;
+
+  users.users.kaiguaaaa.shell = pkgs.fish;
+
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -13,7 +18,7 @@
   programs.hyprland.enable = true;
 
   # Enable Niri
-#  programs.niri.enable = true;
+  programs.niri.enable = true;
 
   # Enable and configure Howdy
   services.howdy = {
@@ -58,8 +63,11 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable SDDM greeter
-  services.displayManager.sddm.enable = true;
+  # Enable SDDM greeter and configure it for Wayland
+  services.displayManager.sddm = {
+	enable = true;
+	wayland.enable = true;
+	};
 
   # Configure keymap in X11
   services.xserver.xkb = {
