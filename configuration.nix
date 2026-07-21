@@ -66,8 +66,8 @@
   # Enable SDDM greeter and configure it for Wayland
   services.displayManager.sddm = {
 #	enable = true;
-	wayland.enable = true; 
-	theme = "catppuccin-sddm-corners";
+#	wayland.enable = true; 
+#	theme = "catppuccin-sddm-corners";
 	};
 
   # Configure keymap in X11
