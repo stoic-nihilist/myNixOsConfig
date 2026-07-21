@@ -10,7 +10,7 @@
 binds {
     Mod+Alt+H { spawn "helium"; }
     Mod+S     { spawn "spotify"; }
-    Mod+E     { spawn "thunar"; }
+    Mod+E     { spawn "nautilus"; }
 
     // Caelestia launcher ("Search"/"Center")
     Mod+Space { spawn "caelestia" "shell" "drawers" "toggle" "launcher"; }
