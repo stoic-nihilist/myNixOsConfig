@@ -38,6 +38,8 @@
 		parabolic
 		wine
 		speedtest-cli
+		spotdl
+		gallery-dl
 		];
 
 	programs.home-manager.enable = true;
