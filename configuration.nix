@@ -66,7 +66,7 @@
   # Enable SDDM greeter and configure it for Wayland
   services.displayManager.sddm = {
 	enable = true;
-	wayland.enable = true;
+	wayland.enable = lib.mkForce true; 
 	};
 
   # Configure keymap in X11
