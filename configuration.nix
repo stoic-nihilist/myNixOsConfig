@@ -7,7 +7,7 @@
 {
 
   # Enable Plasma Login Manager
-  services.displayManager.plasma-login-manager.enable = true;
+#  services.displayManager.plasma-login-manager.enable = true;
 
   # Enable and configure fish
   programs.fish.enable = true;
