@@ -36,7 +36,7 @@
 					helium-browser.overlays.default 
 					];
 				programs.silentSDDM = {
-					enable = true;
+#					enable = true;
 					theme = "everforest";
 					};
 				}

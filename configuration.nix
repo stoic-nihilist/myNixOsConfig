@@ -6,13 +6,22 @@
 
 {
 
+  # Enable Budgie desktop
+  services.desktopManager.budgie.enable = true;
+
   # Enable Plasma Login Manager
-#  services.displayManager.plasma-login-manager.enable = true;
+  services.displayManager.plasma-login-manager.enable = true;
+
+  # Enable Waydroid
+  virtualisation.waydroid.enable = true;
 
   # Enable and configure fish
   programs.fish.enable = true;
 
   users.users.kaiguaaaa.shell = pkgs.fish;
+
+  #Enable nftables module
+  networking.nftables.enable = true;
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -26,7 +35,7 @@
   # Enable and configure Howdy
   services.howdy = {
 #	enable = true;
-	control = "sufficient";
+#	control = "sufficient";
 	};
 
   # Enable Bluetooth

@@ -40,6 +40,7 @@
 		speedtest-cli
 		spotdl
 		gallery-dl
+#		waydroid
 		];
 
 	programs.home-manager.enable = true;
