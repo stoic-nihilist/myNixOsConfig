@@ -7,10 +7,10 @@
 {
 
   # Enable Budgie desktop
-  services.desktopManager.budgie.enable = true;
+#  services.desktopManager.budgie.enable = true;
 
   # Enable Plasma Login Manager
-  services.displayManager.plasma-login-manager.enable = true;
+#  services.displayManager.plasma-login-manager.enable = true;
 
   # Enable Waydroid
   virtualisation.waydroid.enable = true;
@@ -20,8 +20,33 @@
 
   users.users.kaiguaaaa.shell = pkgs.fish;
 
-  #Enable nftables module
+  # Enable nftables module
   networking.nftables.enable = true;
+ 
+  # Enable greetd
+  services.greetd = {
+	enable = true;
+	settings = {
+		default_session = {
+			command = "${pkgs.greetd.regreet}/bin/regreet";
+			};
+		};
+	};
+
+  # Enable regreet
+  programs.regreet = {
+	enable = true;
+	settings = {
+		background = {
+			path = "./forest.jpg";
+			fit = "Cover";
+			};
+		};
+	theme = {
+		package = pkgs.gruvbok-gtk-theme;
+		name = "gruvbox-gtk-theme";
+		};
+	};
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
