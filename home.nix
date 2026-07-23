@@ -32,8 +32,7 @@
 				default.path = "./forest.jpg";
 				};
 			};
-		};
-	
+		};	
 
 	home.username = "kaiguaaaa";
 	home.homeDirectory = "/home/kaiguaaaa";

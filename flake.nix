@@ -25,9 +25,15 @@
 			url = "github:noctalia-dev/noctalia";
 			inputs.nixpkgs.follows = "nixpkgs";
 			};
+
+		noctalia-greeter = {
+			url = "github:noctalia-dev/noctalia-greeter";
+			inputs.nixpkgs.follows = "nixpkgs";
+			};
 		};
 
-	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, ... }:
+
+	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, noctalia-greeter, ... }:
 	{
 		nixosConfigurations.latitude5420 = 
 		nixpkgs.lib.nixosSystem {
@@ -36,12 +42,13 @@
 			modules = [
 				./configuration.nix
 				silentSDDM.nixosModules.default
+				noctalia-greeter.nixosModules.default
 				{
 				nixpkgs.overlays = [ 
 					helium-browser.overlays.default 
 					];
 				programs.silentSDDM = {
-					enable = true;
+#					enable = true;
 					theme = "everforest";
 					};
 				}
