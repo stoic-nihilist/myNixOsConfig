@@ -2,6 +2,9 @@
 
 {
 
+         # Allow unfree packages
+         nixpkgs.config.allowUnfree = true;
+
 	imports = [
 		inputs.caelestia.homeManagerModules.default
 		./hypr-binds.nix
@@ -67,6 +70,9 @@
 		winetricks
 		localsend
 		telegram-desktop
+		reaper
+		qtractor
+		lmms
 		];
 
 	programs.home-manager.enable = true;

@@ -100,6 +100,12 @@
     variant = "";
   };
 
+  # Enable JACK services
+  services.jack = {
+#  	jackd.enable = true;
+ # 	alsa.enable = false;  # true only if you're not using pipewire at all
+	};
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -112,7 +118,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -126,7 +132,7 @@
   users.users."kaiguaaaa" = {
     isNormalUser = true;
     description = "jeffreyyyy";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "audio" ];
     packages = with pkgs; [
         thunderbird
 	git
