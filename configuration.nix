@@ -22,6 +22,9 @@
 
   # Enable nftables module
   networking.nftables.enable = true;
+
+  # Enable GNOME keyring
+  services.gnome.gnome-keyring.enable = true;
  
   # Enable greetd
   services.greetd = {
