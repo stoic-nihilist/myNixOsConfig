@@ -20,10 +20,12 @@
 			url = "github:noctalia-dev/noctalia";
 			inputs.nixpkgs.follows = "nixpkgs";
 			};
+		};
 
 	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, ... }:
 	{
 		nixosConfigurations.latitude5420 = 
+	
 		nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			specialArgs = { inherit inputs; };

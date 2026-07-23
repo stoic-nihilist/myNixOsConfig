@@ -6,18 +6,11 @@
          nixpkgs.config.allowUnfree = true;
 
 	imports = [
-		inputs.caelestia.homeManagerModules.default
 		./hypr-binds.nix
 		./hypr-settings.nix
 		./niri-binds.nix
 		inputs.noctalia.homeModules.default
 		];
-
-	programs.caelestia = {
-#		enable = true;
-		cli.enable = true;
-		systemd.enable = true;
-		};
 
 	programs.noctalia = {
 		enable = true;
