@@ -8,10 +8,10 @@
 // bound to Mod+Alt+H instead of clobbering it.
 
 binds {
-    Mod+Alt+H { spawn "helium"; }
+    Mod+Shift+H { spawn "helium"; }
     Mod+S     { spawn "spotify"; }
     Mod+E     { spawn "nautilus"; }
-
+    Mod+C     { spawn "codium"; }
     // Noctalia Launcher ("Search")	
     Mod+Space { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
 

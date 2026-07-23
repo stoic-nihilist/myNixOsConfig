@@ -16,7 +16,6 @@
 		systemd.enable = true;
 		};
 
-
 	programs.noctalia = {
 		enable = true;
 
@@ -63,6 +62,10 @@
 		kdePackages.dolphin
 		gnome-disk-utility
 		unzip
+		kdePackages.ark
+		wine 
+		winetricks
+		localsend
 		];
 
 	programs.home-manager.enable = true;
