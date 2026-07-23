@@ -66,6 +66,7 @@
 		wine 
 		winetricks
 		localsend
+		telegram-desktop
 		];
 
 	programs.home-manager.enable = true;

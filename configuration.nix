@@ -26,36 +26,14 @@
   # Enable GNOME keyring
   services.gnome.gnome-keyring.enable = true;
  
-  # Enable greetd
-  services.greetd = {
-#	enable = true;
-	settings = {
-		default_session = {
-			command = "${pkgs.greetd.regreet}/bin/regreet";
-			};
-		};
-	};
-
-  # Enable regreet
-  programs.regreet = {
-#	enable = true;
-	settings = {
-		background = {
-			path = "./forest.jpg";
-			fit = "Cover";
-			};
-		};
-	theme = {
-#		package = pkgs.gruvbok-gtk-theme;
-#		name = "gruvbox-gtk-theme";
-		};
-	};
-
-  # Force GTK Renderer
-  environment.variables = {
-#	GSK_RENDERER = "ngl";	
-	};
-
+  #Greeter avatar config
+  systemd.tmpfiles.rules = let
+	user = "kaiguaaaa";
+	iconPath = ./avatars/profile.jpg; # path to your photo, relative to configuration.nix
+	in [
+	"f+ /var/lib/AccountsService/users/${user} 0600 root root - [User]\\nIcon=/var/lib/AccountsService/icons/${user}\\n"
+	"L+ /var/lib/AccountsService/icons/${user} - - - - ${iconPath}"
+	];
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
