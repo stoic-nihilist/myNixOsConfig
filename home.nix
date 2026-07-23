@@ -59,7 +59,10 @@
 		speedtest-cli
 		spotdl
 		gallery-dl
-#		waydroid
+		gopeed
+		kdePackages.dolphin
+		gnome-disk-utility
+		unzip
 		];
 
 	programs.home-manager.enable = true;
