@@ -48,8 +48,8 @@
 					helium-browser.overlays.default 
 					];
 				programs.silentSDDM = {
-#					enable = true;
-					theme = "everforest";
+					enable = true;
+					theme = "catppuccin-mocha";
 					};
 				}
 				];

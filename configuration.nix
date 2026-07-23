@@ -50,7 +50,7 @@
   
   # Enable Noctalia Greeter
    programs.noctalia-greeter = {
-	enable = true;
+#	enable = true;
 
 	settings = {
 		cursor = {
@@ -63,6 +63,11 @@
 			layout = "us";
 			};
 		};
+	};
+
+  # Force GTK Renderer
+  environment.variables = {
+#	GSK_RENDERER = "ngl";	
 	};
 
 
