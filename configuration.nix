@@ -2,12 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, ... }:
 
 {
 
   # Enable Budgie desktop
-#  services.desktopManager.budgie.enable = true;
+  services.desktopManager.budgie.enable = true;
 
   # Enable Plasma Login Manager
 #  services.displayManager.plasma-login-manager.enable = true;
@@ -25,7 +25,7 @@
  
   # Enable greetd
   services.greetd = {
-	enable = true;
+#	enable = true;
 	settings = {
 		default_session = {
 			command = "${pkgs.greetd.regreet}/bin/regreet";
@@ -35,7 +35,7 @@
 
   # Enable regreet
   programs.regreet = {
-	enable = true;
+#	enable = true;
 	settings = {
 		background = {
 			path = "./forest.jpg";
@@ -43,8 +43,8 @@
 			};
 		};
 	theme = {
-		package = pkgs.gruvbok-gtk-theme;
-		name = "gruvbox-gtk-theme";
+#		package = pkgs.gruvbok-gtk-theme;
+#		name = "gruvbox-gtk-theme";
 		};
 	};
 
@@ -52,7 +52,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enable Hyprland
-  programs.hyprland.enable = true;
+#  programs.hyprland.enable = true;
 
   # Enable Niri
   programs.niri.enable = true;
@@ -145,6 +145,7 @@
 	git
  	kitty
 	catppuccin-sddm-corners
+#	inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 

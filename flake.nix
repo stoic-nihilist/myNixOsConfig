@@ -20,6 +20,11 @@
 			url = "github:uiriansan/SilentSDDM";
 			inputs.nixpkgs.follows = "nixpkgs";
 			};
+		
+		noctalia = {
+			url = "github:noctalia-dev/noctalia";
+			inputs.nixpkgs.follows = "nixpkgs";
+			};
 		};
 
 	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, ... }:
@@ -36,7 +41,7 @@
 					helium-browser.overlays.default 
 					];
 				programs.silentSDDM = {
-#					enable = true;
+					enable = true;
 					theme = "everforest";
 					};
 				}

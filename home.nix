@@ -7,13 +7,33 @@
 		./hypr-binds.nix
 		./hypr-settings.nix
 		./niri-binds.nix
+		inputs.noctalia.homeModules.default
 		];
 
 	programs.caelestia = {
-		enable = true;
+#		enable = true;
 		cli.enable = true;
 		systemd.enable = true;
 		};
+
+
+	programs.noctalia = {
+		enable = true;
+
+		settings = {
+			theme = {
+				mode = "dark";
+				source = "builtin";
+				builtin = "Catppuccin";
+				};
+
+			wallpaper = {
+				enabled = true;
+				default.path = "./forest.jpg";
+				};
+			};
+		};
+	
 
 	home.username = "kaiguaaaa";
 	home.homeDirectory = "/home/kaiguaaaa";
