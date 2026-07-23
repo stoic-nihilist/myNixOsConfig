@@ -5,13 +5,6 @@
 { inputs, config, pkgs, lib, ... }:
 
 {
-
-  # Enable Budgie desktop
-#  services.desktopManager.budgie.enable = true;
-
-  # Enable Plasma Login Manager
-#  services.displayManager.plasma-login-manager.enable = true;
-
   # Enable Waydroid
   virtualisation.waydroid.enable = true;
 
@@ -38,17 +31,8 @@
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Enable Hyprland
-#  programs.hyprland.enable = true;
-
   # Enable Niri
   programs.niri.enable = true;
-
-  # Enable and configure Howdy
-  services.howdy = {
-#	enable = true;
-#	control = "sufficient";
-	};
 
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
@@ -60,6 +44,8 @@
     ];
 
   # Bootloader.
+
+	# systemd
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 5;

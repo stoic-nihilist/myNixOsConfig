@@ -11,11 +11,6 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 			};
 
-		caelestia = {
-			url = "github:caelestia-dots/shell";
-			inputs.nixpkgs.follows = "nixpkgs";		
-			};
-
 		silentSDDM = {
 			url = "github:uiriansan/SilentSDDM";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -26,14 +21,7 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 			};
 
-		noctalia-greeter = {
-			url = "github:noctalia-dev/noctalia-greeter";
-			inputs.nixpkgs.follows = "nixpkgs";
-			};
-		};
-
-
-	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, noctalia-greeter, ... }:
+	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, ... }:
 	{
 		nixosConfigurations.latitude5420 = 
 		nixpkgs.lib.nixosSystem {
@@ -42,7 +30,6 @@
 			modules = [
 				./configuration.nix
 				silentSDDM.nixosModules.default
-				noctalia-greeter.nixosModules.default
 				{
 				nixpkgs.overlays = [ 
 					helium-browser.overlays.default 
@@ -50,19 +37,6 @@
 				programs.silentSDDM = {
 					enable = true;
 					theme = "catppuccin-mocha";
-					};
-				programs.noctalia-greeter = {
-				#	enable = true;
-					settings = {
-						cursor = {
-							theme = "Bibata-Modern-Ice";
-							size = 24;
-							};
-
-						keyboard = {
-							layout = "us";
-							};
-						};
 					};
 				}
 				];
