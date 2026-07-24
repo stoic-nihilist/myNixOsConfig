@@ -63,9 +63,10 @@
 		winetricks
 		localsend
 		telegram-desktop
-		reaper
-		qtractor
-		lmms
+		eog
+		qiv
+		qview
+		spotify
 		];
 
 	programs.home-manager.enable = true;
