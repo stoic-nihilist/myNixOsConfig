@@ -41,14 +41,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.loader.grub = {
-    enable = true;
-    efiSupport = true;
-    device = "nodev";
-    configurationLimit = 5;
-
-    # Define and package the theme directly inside the theme option
-#    theme = inputs.distro-grub-themes.packages.x86_64-linux.nixos-grub-theme;
-  };
+    	enable = true;
+    	efiSupport = true;
+    	device = "nodev";
+    	configurationLimit = 5;
+    };
 
 
   distro-grub-themes = {
