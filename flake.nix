@@ -20,18 +20,26 @@
 			url = "github:noctalia-dev/noctalia";
 			inputs.nixpkgs.follows = "nixpkgs";
 			};
+		distro-grub-themes = {
+			url = "github:AdisonCavani/distro-grub-themes";
+			inputs.nixpkgs.follows = "nixpkgs";
+			};
 		};
 
-	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, ... }:
+	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, distro-grub-themes, ... }:
 	{
 		nixosConfigurations.latitude5420 = 
 	
 		nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
-			specialArgs = { inherit inputs; };
+			specialArgs = { 
+				inherit inputs;
+				inherit distro-grub-themes;
+				 };
 			modules = [
 				./configuration.nix
 				silentSDDM.nixosModules.default
+				distro-grub-themes.nixosModules.x86_64-linux.default
 				{
 				nixpkgs.overlays = [ 
 					helium-browser.overlays.default 
