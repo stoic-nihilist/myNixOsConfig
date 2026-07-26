@@ -6,7 +6,6 @@
 
   # Enable and configure fish
   programs.fish.enable = true;
-
   users.users.kaiguaaaa.shell = pkgs.fish;
 
   # Enable nftables module
@@ -29,6 +28,12 @@
 
   # Enable Niri
   programs.niri.enable = true;
+
+  # Enable MAngoWC
+  programs.mangowc.enable = true;
+
+  #Enable Sway
+  programs.sway.enable = true;
 
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
@@ -100,6 +105,8 @@
       thunderbird
       git
       kitty
+	bitwig-studio
+	reaper
     ];
   };
 

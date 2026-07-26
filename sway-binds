@@ -1,0 +1,24 @@
+# Custom keybinds, included from your main sway config via: include ~/.config/sway/sway-binds
+# Managed by Home Manager - do not edit directly, changes will be overwritten
+# on the next `home-manager switch`.
+#
+# $mod+h/j/k/l are core vim-style focus movement in stock Sway, so Helium
+# is bound to $mod+Alt+h instead of clobbering that. Everything else here
+# (space, t, e, s, plain q) is unbound in the stock config.
+
+set $mod Mod4
+
+# Apps
+bindsym $mod+Alt+h exec helium
+bindsym $mod+s exec spotify
+bindsym $mod+e exec thunar
+bindsym $mod+t exec kitty
+
+# Close focused window
+bindsym $mod+q kill
+
+# Noctalia launcher ("Search"/"Center")
+# NOTE: this exact IPC call did not work when tried under niri earlier -
+# treat as unverified until tested here. Run `which noctalia-shell` first
+# to confirm the binary actually resolves before relying on this bind.
+bindsym $mod+space exec noctalia-shell ipc call launcher toggle

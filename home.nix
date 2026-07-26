@@ -10,6 +10,7 @@
 		./hypr-settings.nix
 		./niri-binds.nix
 		inputs.noctalia.homeModules.default
+		./sway-binds.nix
 		];
 
 	programs.noctalia = {
@@ -67,6 +68,9 @@
 		qiv
 		qview
 		spotify
+		vlc
+		bitwig-studio
+		reaper
 		];
 
 	programs.home-manager.enable = true;
