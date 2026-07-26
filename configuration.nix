@@ -42,6 +42,11 @@
     ./hardware-configuration.nix
   ];
 
+  # ovelays
+  nixpkgs.overlays = [
+  (import ./overlays/bitwig.nix)
+];
+
   # Bootloader setup
   boot.loader.efi.canTouchEfiVariables = true;
 
