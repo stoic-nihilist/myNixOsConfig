@@ -11,6 +11,7 @@
 		./niri-binds.nix
 		inputs.noctalia.homeModules.default
 		./sway-binds.nix
+		./mango-binds.nix
 		];
 
 	programs.noctalia = {

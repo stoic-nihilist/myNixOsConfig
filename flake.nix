@@ -24,9 +24,13 @@
 			url = "github:AdisonCavani/distro-grub-themes";
 			inputs.nixpkgs.follows = "nixpkgs";
 			};
+		mangowm = {
+			url = "github:mangowm/mango";
+			inputs.nixpkgs.follows = "nixpkgs";
+			};
 		};
 
-	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, distro-grub-themes, ... }:
+	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, distro-grub-themes, mangowm, ... }:
 	{
 		nixosConfigurations.latitude5420 = 
 	
@@ -40,6 +44,7 @@
 				./configuration.nix
 				silentSDDM.nixosModules.default
 				distro-grub-themes.nixosModules.x86_64-linux.default
+				mangowm.nixosModules.mango
 				{
 				nixpkgs.overlays = [ 
 					helium-browser.overlays.default 

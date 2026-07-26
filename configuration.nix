@@ -29,8 +29,8 @@
   # Enable Niri
   programs.niri.enable = true;
 
-  # Enable MAngoWC
-  programs.mangowc.enable = true;
+  # Enable Mango
+  programs.mango.enable = true;
 
   #Enable Sway
   programs.sway.enable = true;
