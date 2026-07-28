@@ -13,7 +13,13 @@
 
   # Enable GNOME keyring
   services.gnome.gnome-keyring.enable = true;
- 
+
+  services.displayManager.sddm = {
+  	enable = true;
+  	wayland.enable = lib.mkForce true;   # this is the key option — forces SDDM's greeter itself to run on Wayland
+	};
+
+  
   # Greeter avatar config
   systemd.tmpfiles.rules = let
 	user = "kaiguaaaa";
@@ -22,6 +28,19 @@
 	"f+ /var/lib/AccountsService/users/${user} 0600 root root - [User]\\nIcon=/var/lib/AccountsService/icons/${user}\\n"
 	"L+ /var/lib/AccountsService/icons/${user} - - - - ${iconPath}"
   ];
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+  gtk3
+  libepoxy
+  fontconfig
+  freetype
+  libpng
+  zlib
+  cairo
+  glib
+  stdenv.cc.cc.lib
+];
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -34,6 +53,15 @@
 
   #Enable Sway
   programs.sway.enable = true;
+
+  # Enable Scroll
+  programs.scroll.enable = true;
+	
+  # Enable Hyprland
+  programs.hyprland.enable = true;
+
+  # Enable GNOME
+  services.desktopManager.gnome.enable = true;
 
   # Enable Bluetooth
   hardware.bluetooth.enable = true;

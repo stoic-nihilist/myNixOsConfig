@@ -19,3 +19,6 @@ binds {
     // (stock config only pre-binds workspaces 1-9)
     Mod+0 { focus-workspace 10; }
 }
+
+
+spawn-at-startup "xwayland-satellite"

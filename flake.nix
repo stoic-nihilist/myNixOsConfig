@@ -28,9 +28,22 @@
 			url = "github:mangowm/mango";
 			inputs.nixpkgs.follows = "nixpkgs";
 			};
+		scroll = {
+			url = "github:AsahiRocks/scroll-flake";
+			inputs.nixpkgs.follows = "nixpkgs";
+			};
+		hyprland = {
+			url = "github:hyprwm/Hyprland";
+			inputs.nixpkgs.follows = "nixpkgs";
+			};
+
+		hyprland-plugins = {
+			url = "github:hyprwm/hyprland-plugins";
+			inputs.hyprland.follows = "hyprland";
+			};
 		};
 
-	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, distro-grub-themes, mangowm, ... }:
+	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, distro-grub-themes, mangowm, scroll, hyprland, hyprland-plugins, ... }:
 	{
 		nixosConfigurations.latitude5420 = 
 	
@@ -45,6 +58,7 @@
 				silentSDDM.nixosModules.default
 				distro-grub-themes.nixosModules.x86_64-linux.default
 				mangowm.nixosModules.mango
+				scroll.nixosModules.default
 				{
 				nixpkgs.overlays = [ 
 					helium-browser.overlays.default 

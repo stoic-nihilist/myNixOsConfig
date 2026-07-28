@@ -16,3 +16,8 @@ hl.monitor({
 	position = "auto",
 	scale    = 1.25,
 })
+
+
+hl.on("hyprland.start", function()
+  hl.exec_cmd("noctalia")
+end)

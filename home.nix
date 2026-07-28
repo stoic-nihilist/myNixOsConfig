@@ -12,6 +12,7 @@
 		inputs.noctalia.homeModules.default
 		./sway-binds.nix
 		./mango-binds.nix
+		./hypr-scrolling.nix
 		];
 
 	programs.noctalia = {
@@ -30,6 +31,15 @@
 				};
 			};
 		};	
+
+	wayland.windowManager.hyprland = {
+		enable = true;
+		package = null;        # use the Hyprland from your NixOS `programs.hyprland.enable`, not a second copy
+		portalPackage = null;  # same, for the xdg-desktop-portal
+		plugins = [
+			inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
+			];
+		};
 
 	home.username = "kaiguaaaa";
 	home.homeDirectory = "/home/kaiguaaaa";
@@ -72,6 +82,18 @@
 		vlc
 		bitwig-studio
 		reaper
+		lmms
+		qtractor
+		muse
+		gnomeExtensions.paperwm
+		gnomeExtensions.dash2dock-lite
+		gnomeExtensions.bing-wallpaper-changer
+		simplex-chat-desktop
+		qt6Packages.qt6ct
+		libsForQt5.qtstyleplugin-kvantum
+		pkgs.xwayland-satellite
+		davinci-resolve
+		avidemux
 		];
 
 	programs.home-manager.enable = true;
@@ -79,6 +101,20 @@
 	programs.fish = {
 		enable = true;
 		};		
+
+	qt = {
+  enable = true;
+  platformTheme.name = "qtct";
+  style.name = "kvantum";
+};
+
+home.sessionVariables = {
+  XDG_CURRENT_DESKTOP = "niri";
+  GDK_BACKEND = "wayland,x11";
+  QT_QPA_PLATFORM = "wayland";
+};
+
+
 }
 
 	
