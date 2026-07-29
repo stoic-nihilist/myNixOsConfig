@@ -12,7 +12,6 @@
 		inputs.noctalia.homeModules.default
 		./sway-binds.nix
 		./mango-binds.nix
-		./hypr-scrolling.nix
 		];
 
 	programs.noctalia = {
@@ -30,15 +29,6 @@
 				default.path = "./forest.jpg";
 				};
 			};
-		};	
-
-	wayland.windowManager.hyprland = {
-		enable = true;
-		package = null;        # use the Hyprland from your NixOS `programs.hyprland.enable`, not a second copy
-		portalPackage = null;  # same, for the xdg-desktop-portal
-		plugins = [
-			inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
-			];
 		};
 
 	home.username = "kaiguaaaa";

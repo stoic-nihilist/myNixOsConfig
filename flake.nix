@@ -41,9 +41,14 @@
 			url = "github:hyprwm/hyprland-plugins";
 			inputs.hyprland.follows = "hyprland";
 			};
+
+		noctalia-greeter = {
+			url = "github:noctalia-dev/noctalia-greeter";
+			inputs.nixpkgs.follows = "nixpkgs";
+			};
 		};
 
-	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, distro-grub-themes, mangowm, scroll, hyprland, hyprland-plugins, ... }:
+	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, distro-grub-themes, mangowm, scroll, hyprland, hyprland-plugins, noctalia-greeter, ... }:
 	{
 		nixosConfigurations.latitude5420 = 
 	
@@ -58,15 +63,17 @@
 				silentSDDM.nixosModules.default
 				distro-grub-themes.nixosModules.x86_64-linux.default
 				mangowm.nixosModules.mango
+				noctalia-greeter.nixosModules.default
 				scroll.nixosModules.default
 				{
 				nixpkgs.overlays = [ 
 					helium-browser.overlays.default 
 					];
 				programs.silentSDDM = {
-					enable = true;
+#					enable = true;
 					theme = "catppuccin-mocha";
 					};
+				programs.noctalia-greeter.enable = true;
 				}
 				];
 			};

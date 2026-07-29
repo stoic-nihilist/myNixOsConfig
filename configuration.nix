@@ -15,7 +15,7 @@
   services.gnome.gnome-keyring.enable = true;
 
   services.displayManager.sddm = {
-  	enable = true;
+  	#enable = true;
   	wayland.enable = lib.mkForce true;   # this is the key option — forces SDDM's greeter itself to run on Wayland
 	};
 
@@ -58,7 +58,10 @@
   programs.scroll.enable = true;
 	
   # Enable Hyprland
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+	enable = true;
+	package = pkgs.hyprland;
+	};
 
   # Enable GNOME
   services.desktopManager.gnome.enable = true;
