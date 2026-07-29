@@ -46,9 +46,14 @@
 			url = "github:noctalia-dev/noctalia-greeter";
 			inputs.nixpkgs.follows = "nixpkgs";
 			};
+		
+		dms = {
+			url = "github:AvengeMedia/DankMaterialShell/stable";
+			inputs.nixpkgs.follows = "nixpkgs";
+			};
 		};
 
-	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, distro-grub-themes, mangowm, scroll, hyprland, hyprland-plugins, noctalia-greeter, ... }:
+	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, distro-grub-themes, mangowm, scroll, hyprland, hyprland-plugins, noctalia-greeter, dms, ... }:
 	{
 		nixosConfigurations.latitude5420 = 
 	

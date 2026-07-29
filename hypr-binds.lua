@@ -13,10 +13,10 @@ local mainMod = "SUPER"
 hl.bind(mainMod .. " + H", hl.dsp.exec_cmd("helium"))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("spotify"))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("kitty"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("nautilus"))
+-- hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("nautilus"))
 
 -- Caelestia launcher ("Search"/"Center")
-hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("caelestia shell drawers toggle launcher"))
+-- hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("caelestia shell drawers toggle launcher"))
 
 -- Workspaces (SUPER + 1-9, 0)
 for i = 1, 10 do

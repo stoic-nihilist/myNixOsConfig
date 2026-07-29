@@ -10,6 +10,7 @@
 		./hypr-settings.nix
 		./niri-binds.nix
 		inputs.noctalia.homeModules.default
+		inputs.dms.homeModules.dank-material-shell
 		./sway-binds.nix
 		./mango-binds.nix
 		];
@@ -30,6 +31,8 @@
 				};
 			};
 		};
+
+#	programs.dank-material-shell.enable = true;
 
 	home.username = "kaiguaaaa";
 	home.homeDirectory = "/home/kaiguaaaa";
@@ -90,20 +93,7 @@
 
 	programs.fish = {
 		enable = true;
-		};		
-
-	qt = {
-  enable = true;
-  platformTheme.name = "qtct";
-  style.name = "kvantum";
-};
-
-home.sessionVariables = {
-  XDG_CURRENT_DESKTOP = "niri";
-  GDK_BACKEND = "wayland,x11";
-  QT_QPA_PLATFORM = "wayland";
-};
-
+		};
 
 }
 
