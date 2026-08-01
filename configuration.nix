@@ -15,7 +15,7 @@
   services.gnome.gnome-keyring.enable = true;
 
   services.displayManager.sddm = {
-  	#enable = true;
+  	enable = true;
   	wayland.enable = lib.mkForce true;   # this is the key option — forces SDDM's greeter itself to run on Wayland
 	};
 
@@ -46,22 +46,25 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enable Niri
-  programs.niri.enable = true;
+#  programs.niri.enable = true;
 
   # Enable Mango
   programs.mango.enable = true;
 
   #Enable Sway
-  programs.sway.enable = true;
+#  programs.sway.enable = true;
 
   # Enable Scroll
-  programs.scroll.enable = true;
+#  programs.scroll.enable = true;
 	
   # Enable Hyprland
   programs.hyprland = {
 	enable = true;
 	package = pkgs.hyprland;
 	};
+
+  # Enable Kinetic
+#  programs.kineticwe.enable = true;
 
   # Enable GNOME
   services.desktopManager.gnome.enable = true;
@@ -71,6 +74,7 @@
  
   imports = [
     ./hardware-configuration.nix
+    inputs.kineticwe.nixosModules.default
   ];
 
   # ovelays
@@ -143,6 +147,8 @@
       kitty
 	bitwig-studio
 	reaper
+	ninja
+	meson
     ];
   };
 

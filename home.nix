@@ -11,9 +11,16 @@
 		./niri-binds.nix
 		inputs.noctalia.homeModules.default
 		inputs.dms.homeModules.dank-material-shell
+#		inputs.kineticwe.homeModules.default
 		./sway-binds.nix
 		./mango-binds.nix
 		];
+
+	nixpkgs.overlays = [
+  #  		inputs.kineticwe.overlays.default
+ 		];
+
+ # 	programs.kineticwe.enable = true;
 
 	programs.noctalia = {
 		enable = true;
@@ -87,6 +94,7 @@
 		pkgs.xwayland-satellite
 		davinci-resolve
 		avidemux
+		steam
 		];
 
 	programs.home-manager.enable = true;

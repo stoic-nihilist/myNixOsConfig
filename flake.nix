@@ -51,9 +51,13 @@
 			url = "github:AvengeMedia/DankMaterialShell/stable";
 			inputs.nixpkgs.follows = "nixpkgs";
 			};
+		kineticwe = {
+      			url = "gitlab:theblackdon/kineticwe";
+		    	inputs.nixpkgs.follows = "nixpkgs";
+		 	};	
 		};
 
-	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, distro-grub-themes, mangowm, scroll, hyprland, hyprland-plugins, noctalia-greeter, dms, ... }:
+	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, distro-grub-themes, mangowm, scroll, hyprland, hyprland-plugins, noctalia-greeter, dms, kineticwe, ... }:
 	{
 		nixosConfigurations.latitude5420 = 
 	
@@ -70,15 +74,17 @@
 				mangowm.nixosModules.mango
 				noctalia-greeter.nixosModules.default
 				scroll.nixosModules.default
+				kineticwe.nixosModules.default
 				{
 				nixpkgs.overlays = [ 
 					helium-browser.overlays.default 
 					];
 				programs.silentSDDM = {
-#					enable = true;
+					enable = true;
 					theme = "catppuccin-mocha";
 					};
-				programs.noctalia-greeter.enable = true;
+#				programs.noctalia-greeter.enable = true;
+#				programs.kineticwe.enable = true;
 				}
 				];
 			};
