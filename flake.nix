@@ -54,10 +54,18 @@
 		kineticwe = {
       			url = "gitlab:theblackdon/kineticwe";
 		    	inputs.nixpkgs.follows = "nixpkgs";
-		 	};	
+		 	};
+
+		nix-snapd = {
+			url = "github:nix-community/nix-snapd";
+			inputs.nixpkgs.follows = "nixpkgs";
+			};	
 		};
 
-	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, silentSDDM, noctalia, distro-grub-themes, mangowm, scroll, hyprland, hyprland-plugins, noctalia-greeter, dms, kineticwe, ... }:
+	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, 
+			silentSDDM, noctalia, distro-grub-themes, mangowm, 
+			scroll, hyprland, hyprland-plugins, noctalia-greeter, 
+			dms, kineticwe, nix-snapd, ... }:
 	{
 		nixosConfigurations.latitude5420 = 
 	
@@ -71,10 +79,12 @@
 				./configuration.nix
 				silentSDDM.nixosModules.default
 				distro-grub-themes.nixosModules.x86_64-linux.default
+#				home-manager.nixosModules.home-manager
 				mangowm.nixosModules.mango
 				noctalia-greeter.nixosModules.default
 				scroll.nixosModules.default
 				kineticwe.nixosModules.default
+				nix-snapd.nixosModules.default
 				{
 				nixpkgs.overlays = [ 
 					helium-browser.overlays.default 
@@ -85,6 +95,7 @@
 					};
 #				programs.noctalia-greeter.enable = true;
 #				programs.kineticwe.enable = true;
+				services.snap.enable = true;
 				}
 				];
 			};

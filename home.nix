@@ -92,9 +92,8 @@
 		qt6Packages.qt6ct
 		libsForQt5.qtstyleplugin-kvantum
 		pkgs.xwayland-satellite
-		davinci-resolve
 		avidemux
-		steam
+		thunderbird
 		];
 
 	programs.home-manager.enable = true;

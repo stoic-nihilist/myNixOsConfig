@@ -12,7 +12,7 @@ local mainMod = "SUPER"
 -- Apps
 hl.bind(mainMod .. " + H", hl.dsp.exec_cmd("helium"))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("spotify"))
-hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("codium"))
+--hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("codium"))
 -- hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("nautilus"))
 
 -- Caelestia launcher ("Search"/"Center")

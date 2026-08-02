@@ -108,6 +108,20 @@
         "type": "github"
       }
     },
+    "flake-compat_3": {
+      "locked": {
+        "lastModified": 1733328505,
+        "narHash": "sha256-NeCCThCEP3eCl2l/+27kNNK7QrwZB1IJCrXfrbv5oqU=",
+        "rev": "ff81ac966bb2cae68946d5ed5fc4994f96d0ffec",
+        "revCount": 69,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/edolstra/flake-compat/1.1.0/01948eb7-9cba-704f-bbf3-3fa956735b52/source.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -118,6 +132,24 @@
         "owner": "hercules-ci",
         "repo": "flake-parts",
         "rev": "17c9d6cdfc60c64f4ee8d306f9bc0b4ccb51481e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_2": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_2"
+      },
+      "locked": {
+        "lastModified": 1760948891,
+        "narHash": "sha256-TmWcdiUUaWk8J4lpjzu4gCGxWY6/Ok7mOK4fIFfBuU4=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "864599284fc7c0ba6357ed89ed5e2cd5040f0c04",
         "type": "github"
       },
       "original": {
@@ -191,11 +223,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784972795,
-        "narHash": "sha256-YylS1VucYSa8U3K72PDlded7x6uR4tYGAvrY/B6LJFk=",
+        "lastModified": 1785578300,
+        "narHash": "sha256-8BTuivejfH1Ht5jKSAvdDLcTF4jbq8YnUwNJNGX04cQ=",
         "owner": "oxcl",
         "repo": "nix-flake-helium-browser",
-        "rev": "a550cdaa666bc9d1f4411c9ed13f94bfeb7885fc",
+        "rev": "51af22a99d087deb871cbb38df1a1c467c87c98f",
         "type": "github"
       },
       "original": {
@@ -302,11 +334,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1785518015,
-        "narHash": "sha256-u4FOyqVVugmDDffn0P10KYfHlq8AQWlP2wru41bZAwY=",
+        "lastModified": 1785600170,
+        "narHash": "sha256-FUYhESvUq9i4/VtGGr75w3nb3LA8qPKXG4Vs7+IjYD0=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "584df4c390b52e66938dfbb9f7b8561f4c027822",
+        "rev": "88c6386994c960006e14c7bfa4ccfee873252882",
         "type": "github"
       },
       "original": {
@@ -585,11 +617,11 @@
         "noctalia": "noctalia"
       },
       "locked": {
-        "lastModified": 1785451610,
-        "narHash": "sha256-PgCWReAeoiVeVxc2nBrBs2VYsgIY/XzdfeeD3PrDuuo=",
+        "lastModified": 1785579847,
+        "narHash": "sha256-c1lsgj0w+7QfMRWH0qZeg9vFqXu4ORA4nOQoLqjSUi8=",
         "owner": "theblackdon",
         "repo": "kineticwe",
-        "rev": "bb81e54e45995a393559cd3d73ec795ade5e19e2",
+        "rev": "b19017da1c6aa2471bd0806c2b1714aa66e74e67",
         "type": "gitlab"
       },
       "original": {
@@ -607,16 +639,38 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1785420952,
-        "narHash": "sha256-wO69DZLCJfUaU89QKGM4hXNXG6rjPO49jcrwHLWWeqM=",
+        "lastModified": 1785650462,
+        "narHash": "sha256-+Ck3AuNkhbuuhBGgqsmqvVriF1BlZx646GEAwDzGmSY=",
         "owner": "mangowm",
         "repo": "mango",
-        "rev": "f557aaf5485368b76116cbe6297fcd66b88e96d4",
+        "rev": "aec83c14d7f828342b573ca73d072193bdbcf9c6",
         "type": "github"
       },
       "original": {
         "owner": "mangowm",
         "repo": "mango",
+        "type": "github"
+      }
+    },
+    "nix-snapd": {
+      "inputs": {
+        "flake-compat": "flake-compat_3",
+        "flake-parts": "flake-parts_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1761703712,
+        "narHash": "sha256-OKuNVXmHuZ0zi8T0aGWrBJizIfvdTqV1RiV0IN8GPZs=",
+        "owner": "nix-community",
+        "repo": "nix-snapd",
+        "rev": "f7694a0e26d890e285137e1b726b1b44038805c4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-snapd",
         "type": "github"
       }
     },
@@ -643,6 +697,21 @@
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
         "rev": "db3f255737b94216eb71cce308e2912cf6bc2d7c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib_2": {
+      "locked": {
+        "lastModified": 1754788789,
+        "narHash": "sha256-x2rJ+Ovzq0sCMpgfgGaaqgBSwY+LST+WbZ6TytnT9Rk=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "a73b9c743612e4244d865a2fdee11865283c04e6",
         "type": "github"
       },
       "original": {
@@ -679,11 +748,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785404119,
-        "narHash": "sha256-3t/+o8Cbve8z43IekUNBj7Ecn/T+v7+p4Ivgs3IEQtk=",
+        "lastModified": 1785635237,
+        "narHash": "sha256-A0Wc+uUbwRWX1sD+sQ5FpEbsuKg5vqeGQazaBPfs12U=",
         "owner": "noctalia-dev",
         "repo": "noctalia-greeter",
-        "rev": "257ce92ab410a1a9347038e4286a3fc5989bec97",
+        "rev": "4aa960dcff874dddd4d3d94d931df43a416ea9cf",
         "type": "github"
       },
       "original": {
@@ -699,11 +768,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785521092,
-        "narHash": "sha256-qc5PefUCV5rIhGs+dr+0tmSW9MYOAN4cwwncjiXwqIA=",
+        "lastModified": 1785642474,
+        "narHash": "sha256-RU1hfXKCJw+tmHC0x2Xf9EqNJx/nXvJAKyOuGuyW3P8=",
         "owner": "noctalia-dev",
         "repo": "noctalia",
-        "rev": "a7d2cad442172f7e2c2862935b6bfd2dfe2b1303",
+        "rev": "c7abdb8e72b1a80bd6f1d8e096b0a93eeb0b32ff",
         "type": "github"
       },
       "original": {
@@ -744,6 +813,7 @@
         "hyprland-plugins": "hyprland-plugins",
         "kineticwe": "kineticwe",
         "mangowm": "mangowm",
+        "nix-snapd": "nix-snapd",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia_2",
         "noctalia-greeter": "noctalia-greeter",

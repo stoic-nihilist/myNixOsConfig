@@ -19,6 +19,8 @@
   	wayland.enable = lib.mkForce true;   # this is the key option — forces SDDM's greeter itself to run on Wayland
 	};
 
+ # services.snap.enable = true;
+
   
   # Greeter avatar config
   systemd.tmpfiles.rules = let

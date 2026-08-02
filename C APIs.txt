@@ -1,0 +1,62 @@
+Level 0  Building Software
+──────────────────────────
+✓ Compilation
+✓ Translation units
+✓ Linking
+✓ Static libraries
+✓ Shared libraries
+✓ Make
+✓ CMake
+
+Level 1  Designing Libraries
+────────────────────────────
+✓ Public vs private
+✓ Linkage
+✓ Opaque types
+✓ Encapsulation
+✓ Invariants
+✓ Ownership
+✓ Resource lifetime
+✓ Generic containers
+✓ Function pointers
+✓ Callbacks
+
+Level 2  Designing APIs
+───────────────────────
+✓ Responsibilities
+✓ Vocabulary
+✓ Message passing
+✓ Contracts
+✓ Boundaries
+✓ Interface design
+✓ Inversion of Control
+✓ Structural vs Behavioral architecture
+
+Level 3  Designing Systems
+──────────────────────────
+◉ Event dispatch
+◉ Layout engine
+◉ Rendering pipeline
+◉ Input pipeline
+◉ Scene graphs
+◉ Resource managers
+◉ Memory arenas
+◉ Plugin systems
+◉ Serialization
+◉ Hot reloading
+◉ ECS vs OOP
+◉ Threading
+◉ Backend abstraction
+
+Level 4  Engine Architecture
+────────────────────────────
+○ Software renderer
+○ GPU renderer
+○ Text shaping
+○ Font atlas
+○ Dirty rectangles
+○ Frame graphs
+○ UI layout algorithms
+○ Animation systems
+○ Custom allocators
+○ Platform layer
