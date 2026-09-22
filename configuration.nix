@@ -1,0 +1,219 @@
+{ inputs, config, pkgs, lib, ... }:
+
+{
+  # Enable Waydroid
+  virtualisation.waydroid.enable = true;
+
+  # Enable and configure fish
+  programs.fish.enable = true;
+  users.users.jeffreyyyy.shell = pkgs.fish;
+
+  # Enable nftables module
+  networking.nftables.enable = true;
+
+  # Enable GNOME keyring
+  services.gnome.gnome-keyring.enable = true;
+
+  services.displayManager.sddm = {
+  	enable = true;
+  	wayland.enable = lib.mkForce true;   # this is the key option — forces SDDM's greeter itself to run on Wayland
+	};
+
+  services.snap.enable = true;
+
+	#enable MYSQL
+	services.mysql = {
+		enable = true;
+		package = pkgs.mariadb;
+		endureDatabases = [ "wordpress" ];
+		ensureUsers = [{
+			name = "wordpress";
+			ensurePermissions = {
+				"wordpress.*" = "ALL PRIVILEGES";
+				}
+			}];
+		};
+
+	services.phpfm.pools.wordpress = {
+		user = "wwwrun";	
+		settings = {
+			"listen.owner" = "nginx";
+			"pm" = "dynamic";
+			"pm.max_children" = 5;
+			"pm.start_servers" = 2;
+			"pm.min_spare_servers" = 1;
+			"pm.max_spare_servers" = 3;
+			};
+		};
+
+		
+	users.users.wwwrun = {
+		isSystemUser = true;
+		group = "wwwrun";
+		};
+	users.group.wwwrun = {};
+
+	services.nginx = {
+		enable = true;
+		virtualHosts."wp.local" = {
+			root = "/var/www/wp";
+			locations."/" = {
+				index = "index.php index.html";
+				tryFiles = "$uri $uri/ /index.php?$args";
+				};
+			locations."~ \\.php$".extraConfig = ''
+				fastcgi_pass unix:${config.services.phpfm.pools.wordpress.socket};
+				fastcgi_index index.php;
+				include ${pkgs.nginx}/conf/fastcgi_params;
+				fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+				'';
+				};
+			};
+
+	networking.hosts."127.0.0.1" = [ "wp.local" ];
+  
+  # Greeter avatar config
+  systemd.tmpfiles.rules = let
+	user = "jeffreyyyy";
+	iconPath = ./avatars/profile.jpg; # path to your photo, relative to configuration.nix
+  in [
+	"f+ /var/lib/AccountsService/users/${user} 0600 root root - [User]\\nIcon=/var/lib/AccountsService/icons/${user}\\n"
+	"L+ /var/lib/AccountsService/icons/${user} - - - - ${iconPath}"
+  ];
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+  gtk3
+  libepoxy
+  fontconfig
+  freetype
+  libpng
+  zlib
+  cairo
+  glib
+  stdenv.cc.cc.lib
+];
+
+  # Enable flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Enable Niri
+#  programs.niri.enable = true;
+
+  # Enable Mango
+#  programs.mango.enable = true;
+
+  #Enable Sway
+#  programs.sway.enable = true;
+
+  # Enable Scroll
+#  programs.scroll.enable = true;
+	
+  # Enable Hyprland
+  programs.hyprland = {
+#	enable = true;
+	package = pkgs.hyprland;
+	};
+
+  # Enable Kinetic
+#  programs.kineticwe.enable = true;
+
+  # Enable GNOME
+#  services.desktopManager.gnome.enable = true;
+
+  # Enable Plasma
+  services.desktopManager.plasma6.enable = true;
+
+  # Enable Bluetooth
+  hardware.bluetooth.enable = true;
+ 
+  imports = [
+    ./hardware-configuration.nix
+    inputs.kineticwe.nixosModules.default
+  ];
+
+  # ovelays
+  nixpkgs.overlays = [
+  (import ./overlays/bitwig.nix)
+];
+
+  # Bootloader setup
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.loader.grub = {
+    	enable = true;
+    	efiSupport = true;
+    	device = "nodev";
+    	configurationLimit = 5;
+    };
+
+
+  distro-grub-themes = {
+	enable = true;
+	theme = "nixos";
+	};
+
+  # Use latest kernel.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  boot.initrd.luks.devices."luks-97b14819-4059-4044-a4b8-45e04e671b55".device = "/dev/disk/by-uuid/97b14819-4059-4044-a4b8-45e04e671b55";
+  networking.hostName = "latitude5420";
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  # Set your time zone.
+  time.timeZone = "Africa/Nairobi";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
+  # Enable sound with pipewire.
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
+
+  # Define a user account.
+  users.users."jeffreyyyy" = {
+    isNormalUser = true;
+    description = "jeffreyyyy";
+    extraGroups = [ "networkmanager" "wheel" "docker" "audio" ];
+    packages = with pkgs; [
+      thunderbird
+      git
+      kitty
+	bitwig-studio
+	reaper
+	ninja
+	meson
+    ];
+  };
+
+  # Install firefox.
+  programs.firefox.enable = true;
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  environment.systemPackages = with pkgs; [ ];
+
+  system.stateVersion = "26.11";
+}
