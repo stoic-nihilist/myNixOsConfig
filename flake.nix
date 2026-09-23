@@ -60,12 +60,15 @@
 			url = "github:nix-community/nix-snapd";
 			inputs.nixpkgs.follows = "nixpkgs";
 			};	
+		custom-packages = {
+			url = "github:Rishabh5321/custom-packages-flake";
+			};
 		};
 
 	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, 
 			silentSDDM, noctalia, distro-grub-themes, mangowm, 
 			scroll, hyprland, hyprland-plugins, noctalia-greeter, 
-			dms, kineticwe, nix-snapd, ... }:
+			dms, kineticwe, nix-snapd, custom-packages,  ... }:
 	{
 		nixosConfigurations.latitude5420 = 
 	
@@ -85,6 +88,8 @@
 				scroll.nixosModules.default
 				kineticwe.nixosModules.default
 				nix-snapd.nixosModules.default
+#				inputs.custom-packages.packages."x86_64-linux".fladder
+#				inputs.custom-packages.packages."x86_64-linux".better-control
 				{
 				nixpkgs.overlays = [ 
 					helium-browser.overlays.default 

@@ -11,6 +11,14 @@
   # Enable nftables module
   networking.nftables.enable = true;
 
+	#enable budgie
+	services.desktopManager.budgie.enable = true;
+
+	networking.extraHosts = ''
+		127.0.0.1 kwetu-voyages.local
+		'';
+
+
   # Enable GNOME keyring
   services.gnome.gnome-keyring.enable = true;
 
@@ -19,57 +27,60 @@
   	wayland.enable = lib.mkForce true;   # this is the key option — forces SDDM's greeter itself to run on Wayland
 	};
 
+#	services.xserver.desktopManager.cinnamon.enable = true;
+
   services.snap.enable = true;
 
-	#enable MYSQL
+	#wordpress stack
 	services.mysql = {
-		enable = true;
-		package = pkgs.mariadb;
-		endureDatabases = [ "wordpress" ];
-		ensureUsers = [{
-			name = "wordpress";
-			ensurePermissions = {
-				"wordpress.*" = "ALL PRIVILEGES";
-				}
-			}];
-		};
+  enable = true;
+  package = pkgs.mariadb;
 
-	services.phpfm.pools.wordpress = {
-		user = "wwwrun";	
-		settings = {
-			"listen.owner" = "nginx";
-			"pm" = "dynamic";
-			"pm.max_children" = 5;
-			"pm.start_servers" = 2;
-			"pm.min_spare_servers" = 1;
-			"pm.max_spare_servers" = 3;
-			};
-		};
+  ensureDatabases = [ "local" ];
 
-		
-	users.users.wwwrun = {
-		isSystemUser = true;
-		group = "wwwrun";
-		};
-	users.group.wwwrun = {};
+  ensureUsers = [
+    {
+      name = "jeffreyyyy";
+      ensurePermissions = {
+        "local.*" = "ALL PRIVILEGES";
+      };
+    }
+  ];
+};
 
-	services.nginx = {
-		enable = true;
-		virtualHosts."wp.local" = {
-			root = "/var/www/wp";
-			locations."/" = {
-				index = "index.php index.html";
-				tryFiles = "$uri $uri/ /index.php?$args";
-				};
-			locations."~ \\.php$".extraConfig = ''
-				fastcgi_pass unix:${config.services.phpfm.pools.wordpress.socket};
-				fastcgi_index index.php;
-				include ${pkgs.nginx}/conf/fastcgi_params;
-				fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-				'';
-				};
-			};
+services.phpfpm.pools.kwetu-voyages = {
+  user = "nginx";
+  group = "nginx";
 
+  settings = {
+    "listen.owner" = "nginx";
+    "listen.group" = "nginx";
+    "listen.mode" = "0660";
+  };
+};
+
+services.nginx = {
+  enable = true;
+
+  virtualHosts."kwetu-voyages.local" = {
+    root = "/home/jeffreyyyy/Documents/kwetu-voyages/app/public";
+
+    locations."/" = {
+      tryFiles = "$uri $uri/ /index.php?$args";
+    };
+
+    locations."~ \\.php$" = {
+      extraConfig = ''
+        include ${pkgs.nginx}/conf/fastcgi.conf;
+        fastcgi_pass unix:${config.services.phpfpm.pools.kwetu-voyages.socket};
+      '';
+    };
+  };
+};
+
+
+
+	#set host
 	networking.hosts."127.0.0.1" = [ "wp.local" ];
   
   # Greeter avatar config

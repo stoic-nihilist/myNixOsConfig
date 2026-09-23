@@ -41,6 +41,9 @@
 
 #	programs.dank-material-shell.enable = true;
 
+	xdg.configFile."autostart/plank.desktop".source =
+  "${pkgs.plank}/share/applications/plank.desktop";
+
 	home.username = "jeffreyyyy";
 	home.homeDirectory = "/home/jeffreyyyy";
 	home.stateVersion = "26.05";
@@ -53,6 +56,8 @@
 		fastfetch
 		mailspring
 		nautilus
+		glib
+		pkg-config
 		git
 		fragments
 		howdy
@@ -60,6 +65,10 @@
 		gcc
 		kdePackages.yakuake
 		opencode
+		aria2
+		tilda
+		plank
+		steam
 		gnumake
 		cmake
 		helium
@@ -85,9 +94,10 @@
 		telegram-desktop
 		eog
 		qiv
-		qview
+		qview	
 		spotify
 		vlc
+		distrobox
 		bitwig-studio
 		reaper
 		lmms
@@ -95,11 +105,16 @@
 		muse
 		gnomeExtensions.paperwm
 		gnomeExtensions.dash2dock-lite
+		notes
+		sticky-notes
 		gnomeExtensions.bing-wallpaper-changer
 		simplex-chat-desktop
 		qt6Packages.qt6ct
 		libsForQt5.qtstyleplugin-kvantum
 		pkgs.xwayland-satellite
+		dnf5
+		rpm
+		dpkg
 		avidemux
 		thunderbird
 		];
