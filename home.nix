@@ -43,6 +43,8 @@
 
 	systemd.user.sessionVariables.WINEPREFIX = "${config.home.homeDirectory}/.wine-pd";
 
+	home.sessionVariables.WINEPREFIX = "${config.home.homeDirectory}/.wine-pd";
+
 #	programs.dank-material-shell.enable = true;
 
 	home.username = "jeffreyyyy";
