@@ -11,39 +11,49 @@
 		./niri-binds.nix
 		inputs.noctalia.homeModules.default
 		inputs.dms.homeModules.dank-material-shell
-#		inputs.kineticwe.homeModules.default
+		inputs.kineticwe.homeModules.default
+		inputs.ags.homeManagerModules.default
 		./sway-binds.nix
 		./mango-binds.nix
 		];
 
 	nixpkgs.overlays = [
-  #  		inputs.kineticwe.overlays.default
+    		inputs.kineticwe.overlays.default
+		(final: prev: {
+    			noctalia = prev.noctalia.overrideAttrs (o: {
+      				buildInputs = (o.buildInputs or []) ++ [ final.curl.dev ];
+      				nativeBuildInputs = (o.nativeBuildInputs or []) ++ [ final.pkg-config ];
+    				});
+  			})
+		(final: prev: {
+  			noctalia = inputs.noctalia.packages.${final.stdenv.hostPlatform.system}.default.overrideAttrs (o: {
+    				buildInputs = (o.buildInputs or []) ++ [ final.curl.dev ];
+  				});
+			})
  		];
 
- # 	programs.kineticwe.enable = true;
+#  	programs.kineticwe.enable = true;
 
-	xdg.configFile."autostart/guake.desktop".source = "${pkgs.guake}/share/applications/guake.desktop";
+#	xdg.configFile."autostart/guake.desktop".source = "${pkgs.guake}/share/applications/guake.desktop";
+
+	programs.ags.enable = true;
 
 	programs.noctalia = {
 #		enable = true;
 
 		settings = {
 			theme = {
-				mode = "dark";
-				source = "builtin";
-				builtin = "Catppuccin";
+#				mode = "dark";
+#				source = "builtin";
+#				builtin = "Catppuccin";
 				};
 
 			wallpaper = {
-				enabled = true;
-				default.path = "./forest.jpg";
+#				enabled = true;
+#				default.path = "./forest.jpg";
 				};
 			};
 		};
-
-	systemd.user.sessionVariables.WINEPREFIX = "${config.home.homeDirectory}/.wine-pd";
-
-	home.sessionVariables.WINEPREFIX = "${config.home.homeDirectory}/.wine-pd";
 
 #	programs.dank-material-shell.enable = true;
 
@@ -56,6 +66,7 @@
 
 	home.packages = with pkgs; [
 		ripgrep
+		curl
 		fastfetch
 		mailspring
 		inputs.localwp.packages.${pkgs.system}.default
@@ -67,6 +78,7 @@
 		howdy
 		vscodium
 		gcc
+		onlyoffice-desktopeditors
 		kdePackages.yakuake
 		opencode
 		aria2
@@ -77,7 +89,11 @@
 		cmake
 		helium
 		kitty
-		guake
+		gjs
+		cmake
+#		pkgconfig
+#		libcurl
+#		guake
 		git-credential-manager
 		fish
 		bottles
@@ -88,6 +104,7 @@
 		parabolic
 #		wine64
 		wineWow64Packages.stable
+		meson
 #		opencode
 		speedtest-cli
 		spotdl

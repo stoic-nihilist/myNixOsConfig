@@ -112,7 +112,7 @@ services.nginx = {
   services.xserver.desktopManager.xfce.enable = true;
 
   # Enable Niri
-#  programs.niri.enable = true;
+  programs.niri.enable = true;
 
   # Enable Mango
 #  programs.mango.enable = true;

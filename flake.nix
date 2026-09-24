@@ -17,6 +17,9 @@
 			url = "github:uiriansan/SilentSDDM";
 			inputs.nixpkgs.follows = "nixpkgs";
 			};
+
+		ags.url = "github:aylur/ags"; 
+
 		
 		noctalia = {
 			url = "github:noctalia-dev/noctalia";
