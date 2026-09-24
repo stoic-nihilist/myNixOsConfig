@@ -12,7 +12,7 @@
   networking.nftables.enable = true;
 
 	#enable budgie
-	services.desktopManager.budgie.enable = true;
+#	services.desktopManager.budgie.enable = true;
 
 	networking.extraHosts = ''
 		127.0.0.1 kwetu-voyages.local
@@ -27,7 +27,7 @@
   	wayland.enable = lib.mkForce true;   # this is the key option — forces SDDM's greeter itself to run on Wayland
 	};
 
-#	services.xserver.desktopManager.cinnamon.enable = true;
+  services.xserver.desktopManager.cinnamon.enable = true;
 
   services.snap.enable = true;
 
@@ -107,6 +107,9 @@ services.nginx = {
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+#  services.xserver.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
 
   # Enable Niri
 #  programs.niri.enable = true;

@@ -22,6 +22,8 @@
 
  # 	programs.kineticwe.enable = true;
 
+	xdg.configFile."autostart/guake.desktop".source = "${pkgs.guake}/share/applications/guake.desktop";
+
 	programs.noctalia = {
 #		enable = true;
 
@@ -39,10 +41,9 @@
 			};
 		};
 
-#	programs.dank-material-shell.enable = true;
+	systemd.user.sessionVariables.WINEPREFIX = "${config.home.homeDirectory}/.wine-pd";
 
-	xdg.configFile."autostart/plank.desktop".source =
-  "${pkgs.plank}/share/applications/plank.desktop";
+#	programs.dank-material-shell.enable = true;
 
 	home.username = "jeffreyyyy";
 	home.homeDirectory = "/home/jeffreyyyy";
@@ -55,6 +56,7 @@
 		ripgrep
 		fastfetch
 		mailspring
+		inputs.localwp.packages.${pkgs.system}.default
 		nautilus
 		glib
 		pkg-config
@@ -73,12 +75,17 @@
 		cmake
 		helium
 		kitty
+		guake
 		git-credential-manager
 		fish
 		bottles
+		file
+		emacsPackages.mu4e
+		whatsapp-electron
 		fish
 		parabolic
-		wine
+#		wine64
+		wineWow64Packages.stable
 #		opencode
 		speedtest-cli
 		spotdl
@@ -88,7 +95,7 @@
 		gnome-disk-utility
 		unzip
 		kdePackages.ark
-		wine 
+#		wine 
 		winetricks
 		localsend
 		telegram-desktop

@@ -3,6 +3,8 @@
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
+		localwp.url = "github:stoic-nihilist/localwp-nix";
+
 		home-manager.url = "github:nix-community/home-manager/release-26.05";
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
 		
