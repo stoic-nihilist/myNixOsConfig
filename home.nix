@@ -9,6 +9,7 @@
 		./hypr-binds.nix
 		./hypr-settings.nix
 		./niri-binds.nix
+		./catppuccin-mocha.nix
 		inputs.noctalia.homeModules.default
 		inputs.dms.homeModules.dank-material-shell
 		inputs.kineticwe.homeModules.default
@@ -18,21 +19,17 @@
 		];
 
 	nixpkgs.overlays = [
-    		inputs.kineticwe.overlays.default
-		(final: prev: {
-    			noctalia = prev.noctalia.overrideAttrs (o: {
-      				buildInputs = (o.buildInputs or []) ++ [ final.curl.dev ];
-      				nativeBuildInputs = (o.nativeBuildInputs or []) ++ [ final.pkg-config ];
-    				});
-  			})
-		(final: prev: {
-  			noctalia = inputs.noctalia.packages.${final.stdenv.hostPlatform.system}.default.overrideAttrs (o: {
-    				buildInputs = (o.buildInputs or []) ++ [ final.curl.dev ];
-  				});
-			})
+    		# inputs.kineticwe.overlays.default
+		# (final: prev: {
+  		# 	noctalia = inputs.noctalia.packages.${final.stdenv.hostPlatform.system}.default.overrideAttrs (o: {
+    		# 		buildInputs = (o.buildInputs or []) ++ [ final.curl final.curl.dev final.cmake final.pkg-config ];
+      		# 		nativeBuildInputs = (o.nativeBuildInputs or []) ++ [ final.pkg-config final.cmake ];
+      		# 		propagatedBuildInputs = (o.propagatedBuildInputs or []) ++ [ final.curl final.cmake ];
+  		# 		});
+		# 	})
  		];
 
-#  	programs.kineticwe.enable = true;
+  	# programs.kineticwe.enable = true;
 
 #	xdg.configFile."autostart/guake.desktop".source = "${pkgs.guake}/share/applications/guake.desktop";
 
@@ -63,13 +60,13 @@
 	
 #	programs.yakuake.enable = true;
 
-
 	home.packages = with pkgs; [
 		ripgrep
 		curl
 		fastfetch
 		mailspring
 		inputs.localwp.packages.${pkgs.system}.default
+		inputs.studiowp.packages.${pkgs.system}.default
 		nautilus
 		glib
 		pkg-config
@@ -80,24 +77,40 @@
 		gcc
 		onlyoffice-desktopeditors
 		kdePackages.yakuake
+		multiplex
+		jetbrains.rust-rover
+		gnome-boxes
+		xenia-canary
 		opencode
+		xemu
 		aria2
 		tilda
+#		rpcs3
+		pcsx2
 		plank
 		steam
 		gnumake
 		cmake
 		helium
+		proton-vpn-cli
+		vpnc
+		openconnect
+		ocserv
+		mullvad-vpn
+		calyx-vpn
+		amnezia-vpn
+		goose-cli
 		kitty
 		gjs
 		cmake
 #		pkgconfig
 #		libcurl
-#		guake
+		guake
 		git-credential-manager
 		fish
 		bottles
-		file
+		file	
+		webkitgtk_4_1
 		emacsPackages.mu4e
 		whatsapp-electron
 		fish
@@ -109,6 +122,7 @@
 		speedtest-cli
 		spotdl
 		gallery-dl
+		xfce4-whiskermenu-plugin
 		gopeed
 		kdePackages.dolphin
 		gnome-disk-utility
