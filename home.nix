@@ -10,8 +10,9 @@
 		./hypr-settings.nix
 		./niri-binds.nix
 		./catppuccin-mocha.nix
+		./xfce-panel.nix
 #		./polybar.nix
-		./tint2.nix
+#		./tint2.nix
 		inputs.noctalia.homeModules.default
 		inputs.dms.homeModules.dank-material-shell
 		inputs.kineticwe.homeModules.default
