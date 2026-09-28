@@ -21,12 +21,6 @@ in {
   }
 '';
 
-xfconf.settings.xfce4-panel = {
-  "panels/panel-1/background-style" = 0;   # 0 = use GTK theme, not solid/image
-  "panels/panel-1/length" = 98;            # <100% so corners are visible
-  "panels/panel-1/length-adjust" = true;
-};
-
 
   gtk = {
     enable = true;
