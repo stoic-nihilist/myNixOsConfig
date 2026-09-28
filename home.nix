@@ -10,6 +10,7 @@
 		./hypr-settings.nix
 		./niri-binds.nix
 		./catppuccin-mocha.nix
+		./polybar.nix
 		inputs.noctalia.homeModules.default
 		inputs.dms.homeModules.dank-material-shell
 		inputs.kineticwe.homeModules.default

@@ -1,7 +1,33 @@
 { pkgs, ... }:
 let
   gtkTheme = "catppuccin-mocha-blue-standard";
+
+  decoPkg = pkgs.colloid-gtk-theme.override {
+    colorVariants = [ "dark" ];
+    themeVariants = [ "default" ];
+    tweaks = [ "catppuccin" ];
+  };
 in {
+  
+  gtk.gtk3.extraCss = ''
+  .xfce4-panel.background {
+    background-color: alpha(#1e1e2e, 0.92);
+    border-radius: 14px;
+    border: 1px solid #313244;
+  }
+  .xfce4-panel .tasklist button,
+  .xfce4-panel button {
+    border-radius: 10px;
+  }
+'';
+
+xfconf.settings.xfce4-panel = {
+  "panels/panel-1/background-style" = 0;   # 0 = use GTK theme, not solid/image
+  "panels/panel-1/length" = 98;            # <100% so corners are visible
+  "panels/panel-1/length-adjust" = true;
+};
+
+
   gtk = {
     enable = true;
     theme = {
@@ -10,8 +36,9 @@ in {
         variant = "mocha";
         accents = [ "blue" ];
         size = "standard";
+        };
       };
-    };
+
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override {
@@ -40,6 +67,11 @@ in {
       "Net/IconThemeName" = "Papirus-Dark";
       "Gtk/CursorThemeName" = "catppuccin-mocha-dark-cursors";
     };
-    xfwm4."general/theme" = gtkTheme; # window decorations (rounded corners come from the theme's xfwm4 dir)
-  };
-}
+   # xfwm4."general/theme" = gtkTheme; # window decorations (rounded corners come from the theme's xfwm4 dir)
+   };	
+  home.packages = [ decoPkg ];
+
+  xfconf.settings.xfwm4."general/theme" = "Colloid-Dark-Catppuccin";
+  }
+
+
