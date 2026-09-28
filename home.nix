@@ -10,7 +10,7 @@
 		./hypr-settings.nix
 		./niri-binds.nix
 		./catppuccin-mocha.nix
-		./polybar.nix
+#		./polybar.nix
 		inputs.noctalia.homeModules.default
 		inputs.dms.homeModules.dank-material-shell
 		inputs.kineticwe.homeModules.default
@@ -98,6 +98,7 @@
 		openconnect
 		ocserv
 		mullvad-vpn
+		tint2
 		calyx-vpn
 		amnezia-vpn
 		goose-cli
