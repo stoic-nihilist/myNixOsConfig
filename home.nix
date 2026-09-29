@@ -15,6 +15,7 @@
 #		./tint2.nix
 #		./gnome-theme.nix
 		./gnome-extensions.nix
+		./gnome-font.nix
 		inputs.noctalia.homeModules.default
 		inputs.dms.homeModules.dank-material-shell
 		inputs.kineticwe.homeModules.default
@@ -110,6 +111,7 @@
 		tint2
 		calyx-vpn
 		amnezia-vpn
+		gnome-tweaks
 		goose-cli
 		kitty
 		gjs
