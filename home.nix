@@ -64,6 +64,10 @@
 #	programs.yakuake.enable = true;
 
 	home.packages = with pkgs; [
+		(catppuccin-kde.override {
+    			flavour = [ "mocha" ];
+			accents = [ "mauve" ];
+  			})
 		ripgrep
 		curl
 		fastfetch
@@ -98,6 +102,7 @@
 		proton-vpn-cli
 		vpnc
 		openconnect
+		micro
 		ocserv
 		mullvad-vpn
 		tint2

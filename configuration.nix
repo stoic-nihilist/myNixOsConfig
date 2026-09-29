@@ -27,7 +27,7 @@
   	wayland.enable = lib.mkForce true;   # this is the key option — forces SDDM's greeter itself to run on Wayland
 	};
 
-  services.xserver.desktopManager.cinnamon.enable = true;
+#  services.xserver.desktopManager.cinnamon.enable = true;
 
   services.snap.enable = true;
 
@@ -105,6 +105,10 @@ services.nginx = {
   stdenv.cc.cc.lib
 ];
 
+# system config
+hardware.graphics.enable = true;
+hardware.graphics.extraPackages = with pkgs; [ intel-media-driver ];
+
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -133,10 +137,10 @@ services.nginx = {
 #  programs.kineticwe.enable = true;
 
   # Enable GNOME
-#  services.desktopManager.gnome.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Enable Plasma
-  services.desktopManager.plasma6.enable = true;
+ # services.desktopManager.plasma6.enable = true;
 
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
