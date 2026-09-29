@@ -1,6 +1,13 @@
 { inputs, config, pkgs, lib, ... }:
 
 {
+
+  nix.gc = {
+  automatic = true;
+  dates = "weekly";
+  options = "--delete-older-than 30d";
+};
+
   # Enable Waydroid
   virtualisation.waydroid.enable = true;
 

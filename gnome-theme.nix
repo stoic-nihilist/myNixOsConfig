@@ -1,54 +1,47 @@
-{ pkgs, config, ... }:
-let
-  gtkTheme = pkgs.catppuccin-gtk.override {
-    variant = "mocha";
-    accents = [ "mauve" ];
-    size = "standard";
-    tweaks = [ "normal" ];   # add "rimless" / "black" if wanted
-  };
-  themeName = "catppuccin-mocha-mauve-standard";
-in
+{ config, pkgs, ... }:
+
 {
   home.packages = with pkgs; [
-    gnome-tweaks
-    gnomeExtensions.user-themes
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.dash-to-dock
+    catppuccin-gtk
+    papirus-icon-theme
+    bibata-cursors
   ];
 
   gtk = {
     enable = true;
-    theme = { name = themeName; package = gtkTheme; };
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "mocha";
-        accent = "mauve";
-      };
-    };
-    cursorTheme = {
-      name = "catppuccin-mocha-mauve-cursors";
-      package = pkgs.catppuccin-cursors.mochaMauve;
-    };
-  };
 
-  # libadwaita / GTK4 apps
-  xdg.configFile = {
-    "gtk-4.0/gtk.css".source = "${gtkTheme}/share/themes/${themeName}/gtk-4.0/gtk.css";
-    "gtk-4.0/gtk-dark.css".source = "${gtkTheme}/share/themes/${themeName}/gtk-4.0/gtk-dark.css";
-    "gtk-4.0/assets".source = "${gtkTheme}/share/themes/${themeName}/gtk-4.0/assets";
+    theme = {
+      name = "Catppuccin-Frappe-Standard-Pink-Dark";
+      package = pkgs.catppuccin-gtk;
+    };
+
+    iconTheme = {
+      name = "Papirus-Light";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    cursorTheme = {
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
+      size = 24;
+    };
+
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 0;
+    };
+
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = 0;
+    };
   };
 
   dconf.settings = {
-    "org/gnome/desktop/interface".color-scheme = "prefer-dark";
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = [
-        "user-theme@gnome-shell-extensions.gcampax.github.com"
-        "blur-my-shell@aunetx"
-        "dash-to-dock@micxgx.gmail.com"
-      ];
+    "org/gnome/desktop/interface" = {
+      gtk-theme = "Catppuccin-Frappe-Standard-Pink-Dark";
+      icon-theme = "Papirus-Light";
+      cursor-theme = "Bibata-Modern-Ice";
+      cursor-size = 24;
+      color-scheme = "prefer-dark";
     };
-    "org/gnome/shell/extensions/user-theme".name = themeName;
   };
 }

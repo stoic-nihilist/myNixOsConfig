@@ -13,7 +13,7 @@
 #		./xfce-panel.nix
 #		./polybar.nix
 #		./tint2.nix
-#		./gnome-theme.nix
+		./gnome-theme.nix
 		./gnome-extensions.nix
 		./gnome-font.nix
 		inputs.noctalia.homeModules.default

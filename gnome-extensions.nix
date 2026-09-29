@@ -3,6 +3,7 @@
     forge
     dash2dock-lite
     ddterm
+#    paperwm
   ];
 
   dconf.settings."org/gnome/shell" = {
