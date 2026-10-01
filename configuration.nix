@@ -126,7 +126,7 @@ hardware.graphics.extraPackages = with pkgs; [ intel-media-driver ];
   programs.niri.enable = true;
 
   # Enable Mango
-#  programs.mango.enable = true;
+  programs.mango.enable = true;
 
   #Enable Sway
 #  programs.sway.enable = true;
@@ -231,6 +231,11 @@ hardware.graphics.extraPackages = with pkgs; [ intel-media-driver ];
 	meson
     ];
   };
+
+fonts.packages = with pkgs; [
+  corefonts      # includes Times New Roman (unfree)
+  # liberation_ttf  # free, metric-compatible with Times New Roman
+];
 
   # Install firefox.
   programs.firefox.enable = true;

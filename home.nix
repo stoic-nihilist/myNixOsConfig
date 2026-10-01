@@ -20,8 +20,9 @@
 		inputs.dms.homeModules.dank-material-shell
 		inputs.kineticwe.homeModules.default
 		inputs.ags.homeManagerModules.default
-		./sway-binds.nix
+#		./sway-binds.nix
 		./mango-binds.nix
+		./waybar.nix
 		];
 
 	nixpkgs.overlays = [
@@ -66,14 +67,21 @@
 	
 #	programs.yakuake.enable = true;
 
+	fonts.fontconfig.enable = true;
+
+
 	home.packages = with pkgs; [
+
 		(catppuccin-kde.override {
     			flavour = [ "mocha" ];
 			accents = [ "mauve" ];
   			})
+		libreoffice
 		ripgrep
+		corefonts
 		curl
 		fastfetch
+		gnome-clocks
 		mailspring
 		inputs.localwp.packages.${pkgs.system}.default
 		inputs.studiowp.packages.${pkgs.system}.default
@@ -90,6 +98,7 @@
 		multiplex
 		jetbrains.rust-rover
 		gnome-boxes
+		gparted
 		xenia-canary
 		opencode
 		xemu

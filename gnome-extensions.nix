@@ -3,6 +3,8 @@
     forge
     dash2dock-lite
     ddterm
+    blur-my-shell
+#    gnome-clocks
 #    paperwm
   ];
 
