@@ -6,5 +6,5 @@
 	# at the top level of config.kdl (after the main `binds { ... }` block,
 	# so these binds take priority on any overlap) to load it:
 	#   include "niri-binds.kdl"
-	xdg.configFile."niri/niri-binds.kdl".source = ./niri-binds.kdl;
+	xdg.configFile."niri/niri.kdl".source = ./niri.kdl;
 }

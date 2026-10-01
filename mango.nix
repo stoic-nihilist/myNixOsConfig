@@ -46,7 +46,7 @@
 
 
 	services.mangobar = {
-	  enable = true;
+#	  enable = true;
 	
 #	  systemdTarget = "mango.target";
 	

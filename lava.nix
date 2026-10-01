@@ -21,16 +21,16 @@ in {
       background-colour = "#1e1e2eee";
 
       button {
-        image-path = ${icon "firefox"};
-        command[mouse-left] = firefox;
+        image-path = ${icon "helium"};
+        command[mouse-left] = helium;
       }
       button {
-        image-path = ${icon "utilities-terminal"};
-        command[mouse-left] = foot;
+        image-path = ${icon "ghostty"};
+        command[mouse-left] = ghostty;
       }
       button {
-        image-path = ${icon "system-file-manager"};
-        command[mouse-left] = thunar;
+        image-path = ${icon "nautilus"};
+        command[mouse-left] = nautilus;
       }
     }
   '';

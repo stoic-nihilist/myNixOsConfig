@@ -8,7 +8,7 @@
 	imports = [
 		./hypr-binds.nix
 		./hypr-settings.nix
-		./niri-binds.nix
+		./niri.nix
 #		./catppuccin-mocha.nix
 #		./xfce-panel.nix
 #		./polybar.nix
@@ -23,7 +23,7 @@
 		inputs.ags.homeManagerModules.default
 #		./sway-binds.nix
 		./mango.nix
-		./lava.nix
+#		./lava.nix
 #		./waybar.nix
 		];
 
@@ -43,7 +43,14 @@
 #	xdg.configFile."autostart/guake.desktop".source = "${pkgs.guake}/share/applications/guake.desktop";
 
 
+	programs.dank-material-shell = {
+	  enable = true;
+	  systemd.enable = true;   # run as a user service; check the option exists, see below
+	};
+
 	programs.ags.enable = true;
+
+#	programs.noctalia.enable = true;
 
 	programs.noctalia = {
 #		enable = true;
