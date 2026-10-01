@@ -21,7 +21,7 @@
 		inputs.kineticwe.homeModules.default
 		inputs.ags.homeManagerModules.default
 #		./sway-binds.nix
-		./mango-binds.nix
+		./mango.nix
 		./waybar.nix
 		];
 
