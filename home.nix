@@ -17,12 +17,14 @@
 		./gnome-extensions.nix
 		./gnome-font.nix
 		inputs.noctalia.homeModules.default
+		inputs.mangobar.homeManagerModules.default
 		inputs.dms.homeModules.dank-material-shell
 		inputs.kineticwe.homeModules.default
 		inputs.ags.homeManagerModules.default
 #		./sway-binds.nix
 		./mango.nix
-		./waybar.nix
+		./lava.nix
+#		./waybar.nix
 		];
 
 	nixpkgs.overlays = [
@@ -39,6 +41,7 @@
   	# programs.kineticwe.enable = true;
 
 #	xdg.configFile."autostart/guake.desktop".source = "${pkgs.guake}/share/applications/guake.desktop";
+
 
 	programs.ags.enable = true;
 
@@ -70,6 +73,9 @@
 	fonts.fontconfig.enable = true;
 
 
+	services.awww.enable = true;
+
+#	services.lavalauncher.enable = true;
 	home.packages = with pkgs; [
 
 		(catppuccin-kde.override {
@@ -77,16 +83,21 @@
 			accents = [ "mauve" ];
   			})
 		libreoffice
+		nwg-drawer
+#		nwggrid
 		ripgrep
 		corefonts
 		curl
+		lavalauncher
 		fastfetch
 		gnome-clocks
 		mailspring
 		inputs.localwp.packages.${pkgs.system}.default
 		inputs.studiowp.packages.${pkgs.system}.default
 		nautilus
+		swaybg
 		glib
+		pkgs.wlr-randr
 		pkg-config
 		git
 		fragments
@@ -133,6 +144,7 @@
 		bottles
 		file	
 		webkitgtk_4_1
+		nwg-dock
 		emacsPackages.mu4e
 		whatsapp-electron
 		fish

@@ -14,6 +14,11 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 			};
 
+		mangobar = {
+			url = "github:mangowm/mangobar";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
 		silentSDDM = {
 			url = "github:uiriansan/SilentSDDM";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -75,7 +80,7 @@
 	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, 
 			silentSDDM, noctalia, distro-grub-themes, mangowm, 
 			scroll, hyprland, hyprland-plugins, noctalia-greeter, 
-			dms, kineticwe, nix-snapd, custom-packages,  ... }:
+			dms, kineticwe, nix-snapd, custom-packages, mangobar,  ... }:
 	{
 		nixosConfigurations.latitude5420 = 
 	

@@ -26,11 +26,13 @@
 		'';
 
 
+#  services.xserver.displayManager.lightdm.enable = true;
+
   # Enable GNOME keyring
   services.gnome.gnome-keyring.enable = true;
 
   services.displayManager.sddm = {
-  	enable = true;
+   	enable = true;
   	wayland.enable = lib.mkForce true;   # this is the key option — forces SDDM's greeter itself to run on Wayland
 	};
 
