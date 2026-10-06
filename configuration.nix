@@ -29,7 +29,7 @@
 #  services.xserver.displayManager.lightdm.enable = true;
 
   # Enable GNOME keyring
-  services.gnome.gnome-keyring.enable = true;
+#  services.gnome.gnome-keyring.enable = true;
 
   services.displayManager.sddm = {
    	enable = true;
@@ -121,7 +121,7 @@ hardware.graphics.extraPackages = with pkgs; [ intel-media-driver ];
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-#  services.xserver.enable = true;
+#  services.xserer.enable = true;
   services.xserver.desktopManager.xfce.enable = true;
 
   # Enable Niri
@@ -138,7 +138,7 @@ hardware.graphics.extraPackages = with pkgs; [ intel-media-driver ];
 	
   # Enable Hyprland
   programs.hyprland = {
-#	enable = true;
+	enable = true;
 	package = pkgs.hyprland;
 	};
 
@@ -149,7 +149,7 @@ hardware.graphics.extraPackages = with pkgs; [ intel-media-driver ];
   services.desktopManager.gnome.enable = true;
 
   # Enable Plasma
- # services.desktopManager.plasma6.enable = true;
+#  services.desktopManager.plasma6.enable = true;
 
   # Enable Bluetooth
   hardware.bluetooth.enable = true;

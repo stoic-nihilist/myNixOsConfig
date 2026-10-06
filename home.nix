@@ -16,11 +16,16 @@
 		./gnome-theme.nix
 		./gnome-extensions.nix
 		./gnome-font.nix
-		inputs.noctalia.homeModules.default
+#		inputs.noctalia.homeModules.default
 		inputs.mangobar.homeManagerModules.default
 		inputs.dms.homeModules.dank-material-shell
 		inputs.kineticwe.homeModules.default
 		inputs.ags.homeManagerModules.default
+		inputs.caelestia-mango.homeManagerModules.default
+#		inputs.caelestia.homeManagerModules.default
+		inputs.inir.homeManagerModules.default
+#		inputs.caelestia-niri.homeManagerModules.default
+#		inputs.noctalia-qs.homeModules.default
 #		./sway-binds.nix
 		./mango.nix
 #		./lava.nix
@@ -43,8 +48,31 @@
 #	xdg.configFile."autostart/guake.desktop".source = "${pkgs.guake}/share/applications/guake.desktop";
 
 
+#	programs.noctalia-qs.enable =true;
+
+	programs.caelestia = {
+		enable = true;
+		cli = {
+			enable = true;
+		};
+		systemd = {
+			enable = false;
+		};
+	};
+
+	programs.quickshell = {
+	    enable = true;
+#	    systemd.enable = true; 
+	  };
+
+	programs.inir = {
+#		enable = true;
+#		systemd.enable = true;
+	};
+
+
 	programs.dank-material-shell = {
-	  enable = true;
+#	  enable = true;
 	  systemd.enable = true;   # run as a user service; check the option exists, see below
 	};
 
@@ -82,6 +110,7 @@
 
 	services.awww.enable = true;
 
+
 #	services.lavalauncher.enable = true;
 	home.packages = with pkgs; [
 
@@ -90,6 +119,7 @@
 			accents = [ "mauve" ];
   			})
 		libreoffice
+	    inputs.gpui-shell.packages.${pkgs.system}.default		
 		nwg-drawer
 #		nwggrid
 		ripgrep
@@ -104,6 +134,8 @@
 		nautilus
 		swaybg
 		glib
+		python314
+		python314Packages.pip
 		pkgs.wlr-randr
 		pkg-config
 		git
@@ -140,6 +172,7 @@
 		amnezia-vpn
 		gnome-tweaks
 		goose-cli
+		gimp
 		kitty
 		gjs
 		cmake

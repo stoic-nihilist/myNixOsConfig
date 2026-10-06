@@ -1,12 +1,12 @@
 {
 
 	inputs = {
-		nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
 		localwp.url = "github:stoic-nihilist/localwp-nix";
 		studiowp.url = "github:stoic-nihilist/studiowp-nix";
 
-		home-manager.url = "github:nix-community/home-manager/release-26.05";
+		home-manager.url = "github:nix-community/home-manager";
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
 		
 		helium-browser = {
@@ -58,6 +58,11 @@
 			url = "github:noctalia-dev/noctalia-greeter";
 			inputs.nixpkgs.follows = "nixpkgs";
 			};
+
+		gpui-shell = {
+		      url = "github:andre-brandao/gpui-shell";
+		      inputs.nixpkgs.follows = "nixpkgs";
+		    };
 		
 		dms = {
 			url = "github:AvengeMedia/DankMaterialShell";
@@ -75,12 +80,27 @@
 		custom-packages = {
 			url = "github:Rishabh5321/custom-packages-flake";
 			};
+
+#		caelestia.url = "github:NucleoFusion/niri-caelestia-shell";
+		caelestia-niri = {
+			url ="github:AyushKr2003/niri-caelestia-shell";
+			inputs.nixpkgs.follows = "nixpkgs";
+			};
+
+		caelestia-mango = {
+			url = "github:evoziosk/caelestia-shell-mango";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+		 
+		inir.url = "github:snowarch/iNiR";
+
+		noctalia-qs.url = "github:noctalia-dev/noctalia-qs";
 		};
 
 	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, 
 			silentSDDM, noctalia, distro-grub-themes, mangowm, 
 			scroll, hyprland, hyprland-plugins, noctalia-greeter, 
-			dms, kineticwe, nix-snapd, custom-packages, mangobar,  ... }:
+			dms, noctalia-qs, kineticwe, nix-snapd, custom-packages, mangobar,  ... }:
 	{
 		nixosConfigurations.latitude5420 = 
 	
@@ -100,6 +120,7 @@
 				scroll.nixosModules.default
 				kineticwe.nixosModules.default
 				nix-snapd.nixosModules.default
+#				noctalia-qs.nixosModules.default
 #				inputs.custom-packages.packages."x86_64-linux".fladder
 #				inputs.custom-packages.packages."x86_64-linux".better-control
 				{
@@ -110,6 +131,8 @@
 					enable = true;
 					theme = "catppuccin-mocha";
 					};
+
+#				programs.noctalia-qs.enable = true;
 #				programs.noctalia-greeter.enable = true;
 #				programs.kineticwe.enable = true;
 				services.snap.enable = true;

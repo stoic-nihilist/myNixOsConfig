@@ -8,7 +8,7 @@
 // bound to Mod+Alt+H instead of clobbering it.
 
 binds {
-    Mod+H { spawn "helium"; }
+//    Mod+H { spawn "helium"; }
     Mod+S     { spawn "spotify"; }
     Mod+E     { spawn "nautilus"; }
     Mod+C     { spawn "codium"; }
@@ -23,4 +23,4 @@ binds {
 
 
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "dms run"
+//spawn-at-startup "dms run"
