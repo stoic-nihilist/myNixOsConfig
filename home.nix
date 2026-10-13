@@ -21,10 +21,10 @@
 		inputs.dms.homeModules.dank-material-shell
 		inputs.kineticwe.homeModules.default
 		inputs.ags.homeManagerModules.default
-		inputs.caelestia-mango.homeManagerModules.default
+#		inputs.caelestia-mango.homeManagerModules.default
 #		inputs.caelestia.homeManagerModules.default
 		inputs.inir.homeManagerModules.default
-#		inputs.caelestia-niri.homeManagerModules.default
+		inputs.caelestia-niri.homeManagerModules.default
 #		inputs.noctalia-qs.homeModules.default
 #		./sway-binds.nix
 		./mango.nix
@@ -51,7 +51,7 @@
 #	programs.noctalia-qs.enable =true;
 
 	programs.caelestia = {
-		enable = true;
+#		enable = true;
 		cli = {
 			enable = true;
 		};
@@ -61,12 +61,12 @@
 	};
 
 	programs.quickshell = {
-	    enable = true;
+#	    enable = true;
 #	    systemd.enable = true; 
 	  };
 
 	programs.inir = {
-#		enable = true;
+		enable = true;
 #		systemd.enable = true;
 	};
 
@@ -78,7 +78,7 @@
 
 	programs.ags.enable = true;
 
-#	programs.noctalia.enable = true;
+	programs.noctalia.enable = true;
 
 	programs.noctalia = {
 #		enable = true;
@@ -110,6 +110,8 @@
 
 	services.awww.enable = true;
 
+	home.sessionVariables.QSG_RHI_BACKEND = "software";
+
 
 #	services.lavalauncher.enable = true;
 	home.packages = with pkgs; [
@@ -121,8 +123,16 @@
 		libreoffice
 	    inputs.gpui-shell.packages.${pkgs.system}.default		
 		nwg-drawer
+#		p7zip
+#		p7zip-rar
+#		rar
+#		unrar
 #		nwggrid
 		ripgrep
+		gpu-screen-recorder
+		spotdl
+		gallery-dl
+		gpu-screen-recorder-gtk
 		corefonts
 		curl
 		lavalauncher
@@ -139,7 +149,7 @@
 		pkgs.wlr-randr
 		pkg-config
 		git
-		fragments
+#		fragments
 		howdy
 		vscodium
 		gcc
@@ -166,6 +176,7 @@
 		openconnect
 		micro
 		ocserv
+		qbittorrent
 		mullvad-vpn
 		tint2
 		calyx-vpn
@@ -212,7 +223,8 @@
 		spotify
 		vlc
 		distrobox
-		bitwig-studio
+		obs-studio
+#		bitwig-studio
 		reaper
 		lmms
 		qtractor

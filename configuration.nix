@@ -32,9 +32,17 @@
 #  services.gnome.gnome-keyring.enable = true;
 
   services.displayManager.sddm = {
-   	enable = true;
-  	wayland.enable = lib.mkForce true;   # this is the key option — forces SDDM's greeter itself to run on Wayland
+#   	enable = true;
+ # 	wayland.enable = lib.mkForce true;   # this is the key option — forces SDDM's greeter itself to run on Wayland
 	};
+
+  services.desktopManager.cosmic-scrolling.enable = true;
+
+  programs.noctalia-greeter = {
+      enable = true;
+      settings.output.scale = 1.0;
+      # settings = { cursor = { theme = "Bibata-Modern-Ice"; size = 24; path = "${pkgs.bibata-cursors}/share/icons"; }; };
+    };
 
 #  services.xserver.desktopManager.cinnamon.enable = true;
 
@@ -87,7 +95,8 @@ services.nginx = {
   };
 };
 
-
+#enable deepin
+#services.xserver.desktopManager.deepin.enable = true;
 
 	#set host
 	networking.hosts."127.0.0.1" = [ "wp.local" ];
@@ -116,7 +125,8 @@ services.nginx = {
 
 # system config
 hardware.graphics.enable = true;
-hardware.graphics.extraPackages = with pkgs; [ intel-media-driver ];
+#hardware.graphics.extraPackages = with pkgs; [ intel-media-driver ];
+hardware.graphics.extraPackages = with pkgs; [ intel-media-driver vpl-gpu-rt ];
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -133,17 +143,20 @@ hardware.graphics.extraPackages = with pkgs; [ intel-media-driver ];
   #Enable Sway
 #  programs.sway.enable = true;
 
+  #Enable COSMIC
+   services.desktopManager.cosmic.enable = true;
+
   # Enable Scroll
 #  programs.scroll.enable = true;
 	
   # Enable Hyprland
   programs.hyprland = {
-	enable = true;
+#	enable = true;
 	package = pkgs.hyprland;
 	};
 
   # Enable Kinetic
-#  programs.kineticwe.enable = true;
+ programs.kineticwe.enable = true;
 
   # Enable GNOME
   services.desktopManager.gnome.enable = true;
@@ -159,10 +172,6 @@ hardware.graphics.extraPackages = with pkgs; [ intel-media-driver ];
     inputs.kineticwe.nixosModules.default
   ];
 
-  # ovelays
-  nixpkgs.overlays = [
-  (import ./overlays/bitwig.nix)
-];
 
   # Bootloader setup
   boot.loader.efi.canTouchEfiVariables = true;
@@ -227,7 +236,6 @@ hardware.graphics.extraPackages = with pkgs; [ intel-media-driver ];
       thunderbird
       git
       kitty
-	bitwig-studio
 	reaper
 	ninja
 	meson

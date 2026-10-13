@@ -70,7 +70,7 @@
 			};
 		kineticwe = {
       			url = "gitlab:theblackdon/kineticwe";
-		    	inputs.nixpkgs.follows = "nixpkgs";
+		    #	inputs.nixpkgs.follows = "nixpkgs";
 		 	};
 
 		nix-snapd = {
@@ -92,15 +92,23 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		 
-		inir.url = "github:snowarch/iNiR";
+		inir = {
+			url = "github:snowarch/iNiR";
+			inputs.nixpkgs.follows = "nixpkgs";
+			};
 
 		noctalia-qs.url = "github:noctalia-dev/noctalia-qs";
+		};
+
+		inputs.cosmic-scrolling = {
+		  url = "path:/home/jeffreyyyy/cosmic-scrolling";
+		  inputs.nixpkgs.follows = "nixpkgs";
 		};
 
 	outputs = inputs@{ self, nixpkgs, home-manager, helium-browser, 
 			silentSDDM, noctalia, distro-grub-themes, mangowm, 
 			scroll, hyprland, hyprland-plugins, noctalia-greeter, 
-			dms, noctalia-qs, kineticwe, nix-snapd, custom-packages, mangobar,  ... }:
+			dms, noctalia-qs, kineticwe, nix-snapd, custom-packages, mangobar, cosmic-scrolling,  ... }:
 	{
 		nixosConfigurations.latitude5420 = 
 	
@@ -118,6 +126,7 @@
 				mangowm.nixosModules.mango
 				noctalia-greeter.nixosModules.default
 				scroll.nixosModules.default
+				cosmic-scrolling.nixosModules.default
 				kineticwe.nixosModules.default
 				nix-snapd.nixosModules.default
 #				noctalia-qs.nixosModules.default
@@ -128,8 +137,8 @@
 					helium-browser.overlays.default 
 					];
 				programs.silentSDDM = {
-					enable = true;
-					theme = "catppuccin-mocha";
+#					enable = true;
+#					theme = "catppuccin-mocha";
 					};
 
 #				programs.noctalia-qs.enable = true;
